@@ -1,0 +1,186 @@
+================================================================================
+  ValeraScreenshot — USER MANUAL   (Ukrainian: MANUAL.txt)
+  Local screen captures at native resolution. No network, no telemetry.
+  Author: Pavlo Isaiev - (c) 2026 - caussa.blog
+================================================================================
+
+CONTENTS
+  1. Install and uninstall
+  2. Quick start
+  3. Hotkeys
+  4. Editing tools (13)
+  5. What you can do with a capture: copy, save, print, share
+  6. Settings
+  7. FAQ and honest limits
+
+--------------------------------------------------------------------------------
+1. INSTALL AND UNINSTALL
+--------------------------------------------------------------------------------
+INSTALLER (recommended):
+  Run ValeraScreenshot-Setup-<version>.exe. Default folder:
+  C:\Program Files (x86)\ValeraScreenshot (the installer asks for UAC elevation on its
+  own; without admin rights it honestly offers %LOCALAPPDATA%\Programs\ValeraScreenshot).
+  Options: desktop shortcut, autostart, free up the PrtScr key.
+
+  Silent install (for scripts):
+    ValeraScreenshot-Setup-<version>.exe /S [/D=folder] [/autostart] [/desktop] [/freeprtscr] [/nolaunch]
+
+UNINSTALL:
+  Apps -> ValeraScreenshot -> Uninstall (or Uninstall.exe in the install folder).
+  The Screenshots folder with your captures is NEVER deleted.
+
+--------------------------------------------------------------------------------
+2. QUICK START
+--------------------------------------------------------------------------------
+  1) ValeraScreenshot sits in the tray (a viewfinder icon).
+  2) Press Ctrl+Shift+4 - the screen freezes and dims.
+  3) Drag a region with the mouse (or click to take the whole monitor).
+  4) Draw on it if you want: arrow, text, mosaic and so on (the toolbar sits
+     under the selection).
+  5) Enter puts the capture on the clipboard; Ctrl+S writes a file into the
+     Screenshots folder; the Share button sends it straight to
+     WhatsApp / Telegram / email.
+
+--------------------------------------------------------------------------------
+3. HOTKEYS
+--------------------------------------------------------------------------------
+GLOBAL (always active, TWO hotkeys per action - one for laptops, one for desktops):
+  Capture a region .. Ctrl+Shift+4 (primary, present on any keyboard)
+                      + PrtScr (secondary, for desktops)
+  Whole screen ...... Ctrl+Shift+3 (primary) + Shift+PrtScr (secondary)
+                      -> straight to a file in the folder (and the clipboard)
+  Both hotkeys of each action are live at the same time and can be changed in
+  Settings (click a field -> press a new combination; Del clears the secondary).
+  On laptops without PrtScr the primary Ctrl+Shift+4/3 is enough; on desktops the
+  familiar PrtScr is convenient.
+
+IN THE OVERLAY (while the screen is frozen):
+  Enter or double-click .. copy to the clipboard and leave
+  Ctrl+C ................. copy to the clipboard
+  Ctrl+S ................. save into the folder using the name template
+  Ctrl+Shift+S ........... save as... (dialog, PNG/JPG)
+  Ctrl+P ................. print
+  Ctrl+D ................. share (messengers / email)
+  Ctrl+Z / Ctrl+Y ........ undo / redo
+  Ctrl+A ................. select the whole screen
+  Arrows / Shift+arrows .. move the selection by 1 / 10 pixels
+  Mouse wheel ............ tool thickness
+  Esc .................... leave without a capture
+  Right-click ............ clear the selection; again - leave
+
+TOOLS (Latin keys, they work under any keyboard layout):
+  V select/move      P pencil       M highlighter   L line
+  A arrow            R rectangle    E ellipse       F area highlight
+  I mosaic           N step 1-2-3   G route         T text
+  B solid black redaction
+
+--------------------------------------------------------------------------------
+   THE "ROUTE" TOOL (G) - drawing a path over a map
+--------------------------------------------------------------------------------
+  Capture a piece of a map, then turn on "Route" (the toolbar button or the G
+  key) and build the path by clicking:
+    1) click - place the first point (green);
+    2) move the mouse - a dashed line follows the cursor (with a magnifier for
+       pixel-accurate aiming);
+    3) click - fix the next point; and so on, as many as you need;
+    4) DOUBLE-CLICK (or Enter, or right-click) - the route is finished: a solid
+       line with nodes and an arrow at the end.
+  Backspace or Ctrl+Z while building removes the last point.
+  Esc while building cancels the route (the capture stays).
+  After that the route is an ordinary annotation: Ctrl+D shares the capture with
+  the path, Ctrl+S saves it to a file.
+
+--------------------------------------------------------------------------------
+4. EDITING TOOLS
+--------------------------------------------------------------------------------
+  Select (V) ........ move or resize the selection by its 8 handles
+  Pencil (P) ........ freehand drawing
+  Highlighter (M) ... a wide semi-transparent marker (to underline text)
+  Line (L) .......... a straight line
+  Arrow (A) ......... a line with an arrow head
+  Rectangle (R) ..... an empty rectangle
+  Ellipse (E) ....... an empty ellipse or circle
+  Highlight (F) ..... a semi-transparent colour fill - to mark an area
+  Mosaic (I) ........ pixelates an area (blur a face, small print)
+  Step (N) .......... a circle with the number 1, 2, 3... - for instructions;
+                      the number grows by itself, drag to place it precisely
+  Route (G) ......... a path over a map built by clicks - see the section above
+  Text (T) .......... click, then type; Enter finishes, Shift+Enter adds a line
+  Redact (B) ........ a solid black rectangle - RELIABLE concealment of
+                      sensitive data (unlike the mosaic, it is irreversible)
+
+  Colour ............ a palette of 12 colours plus "Another colour..."
+  Thickness ......... the dot button or the mouse wheel (it also drives the size
+                      of text, of the step badge and of the mosaic block)
+
+  A WARNING ABOUT HIDING DATA: for anything genuinely sensitive use the BLACK
+  REDACTION (B). A mosaic leaves statistical traces and is in theory reversible
+  for high-contrast text.
+
+--------------------------------------------------------------------------------
+5. WHAT YOU CAN DO WITH A CAPTURE
+--------------------------------------------------------------------------------
+  COPY (Enter / Ctrl+C): both a bitmap and a PNG are placed on the clipboard, so
+    it pastes into Word, messengers and graphics editors alike.
+  SAVE (Ctrl+S): immediately into the folder, named by the template (see Settings).
+  SAVE AS (Ctrl+Shift+S): a dialog with a folder and PNG/JPG choice.
+  PRINT (Ctrl+P): the system print dialog; the capture is scaled to the page.
+  SHARE (Ctrl+D or the toolbar button):
+    - the capture is saved to a file and placed on the clipboard;
+    - a window opens listing the targets FOUND on this machine:
+      WhatsApp, Telegram, Viber, Signal - the app opens and you press Ctrl+V in
+      the chat (the image is already on the clipboard);
+      Email - a new message with the file ATTACHED (through your default mail
+      client, via MAPI);
+      "Open the file's folder" - Explorer with the file selected.
+
+  If the clipboard is held by another program, ValeraScreenshot SAYS SO instead of
+  reporting success: the file is on disk, but Ctrl+V would paste the wrong thing.
+
+--------------------------------------------------------------------------------
+6. SETTINGS (right-click the tray icon -> Settings...)
+--------------------------------------------------------------------------------
+  Hotkeys ............ click a field, then press the new combination
+  Screenshots folder . where files land (empty = a Screenshots folder alongside)
+  Name template ...... tags {date} {time} {w} {h}
+  Format ............. PNG (lossless) or JPG plus quality
+  Draw the cursor .... show the mouse pointer in the capture
+  Copy to clipboard .. after saving the file, also put it on the clipboard
+  Shutter sound ...... an audible confirmation
+  Notification ....... a tray balloon after a capture (click it to open the folder)
+  Start with Windows . launch together with Windows
+  Interface theme .... light / dark / as in Windows; applied immediately, no
+                       restart. If Windows HIGH CONTRAST is on it overrides any
+                       choice and the colours come from your scheme.
+  Interface language . Ukrainian / English / as in Windows; also immediate.
+  Free up PrtScr ..... if PrtScr opens Snipping Tool, turn that off
+
+--------------------------------------------------------------------------------
+7. FAQ AND HONEST LIMITS
+--------------------------------------------------------------------------------
+  Why is the resolution the highest possible? The capture is taken at 1:1
+    physical screen pixels (PerMonitorV2 + BitBlt), regardless of the Windows
+    scale (100% / 150% / ...). All monitors are captured as one virtual screen.
+  Where is anything sent? NOWHERE. No code path sends an image anywhere - unlike
+    Lightshot, which uploads captures to the public prnt.sc. The network is used
+    in EXACTLY ONE place: the update check (src\Updater.cs) fetches a text
+    manifest from GitHub Releases, and only when you press "Check for updates".
+    Your captures take no part in that exchange.
+  Capturing over video or games? Ordinary windows - yes (CAPTUREBLT); full-screen
+    games holding exclusive DirectX may produce a black frame. That is a GDI
+    limitation, and ValeraScreenshot reports it instead of saving the black frame.
+  Windows running as administrator: the hotkeys still fire, but ValeraScreenshot's
+    dialogs may end up behind the elevated window (a Windows UIPI limitation).
+  Annotations are drawn inside the selection only (as in Lightshot).
+  The exe is signed with a self-signed certificate (the author's), so Windows
+    shows a SmartScreen warning on first download. That does not make the file
+    safer or less safe - it only means no paid intermediary vouched for it. The
+    fingerprint and the normal trust flow are in SECURITY.md.
+  Accessibility: every element has a name for Narrator, switches announce their
+    state, dialogs are fully reachable from the keyboard (Tab, Space, Enter, Esc)
+    and the contrast is verified against WCAG 2.1 on every build.
+
+================================================================================
+  Building from source: build.ps1 (the compiler is already inside Windows, zero
+  dependencies). Source: github.com/nsrosbr/valera-screenshot - MIT licence.
+================================================================================
