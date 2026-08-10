@@ -1,0 +1,3 @@
+# STD-ENC-06: git must NOT rewrite bytes. Source is authored ASCII/UTF-8 with deliberate EOLs
+# (.ps1 = ASCII no-BOM, .cmd = CRLF, shipped manuals = UTF-8 BOM). Let git store them verbatim.
+* -text
