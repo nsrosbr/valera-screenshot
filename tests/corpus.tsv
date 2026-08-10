@@ -1,0 +1,57 @@
+# corpus.tsv - вимірний корпус домену LiteScribe (STD-GATE-03/04).
+# Формат:  KIND <TAB> vk:mods <TAB> expected
+#   POS - позитивний кейс: комбінація мусить відрендеритись у канонічний підпис.
+#   NEG - негативний кейс: сутність мусить ПЕРЕЖИТИ незміненою. Тут це «вимкнена клавіша»:
+#         Vk=0 ЗАВЖДИ читається як «—» і НІКОЛИ не показується як реальна клавіша, хай які
+#         модифікатори виставлені. Корпус лише з позитивів заохочував би рушій бути агресивним.
+# mods: ALT=1 CTRL=2 SHIFT=4 WIN=8 (Win32). Порядок у підписі: Ctrl+ Shift+ Alt+ Win+
+# Функція під виміром - Hotkeys.ToText - та сама, що малює підписи в треї та Параметрах.
+#
+# --- основні клавіші застосунку (ноут: цифри верхнього ряду) ---
+POS	52:6	Ctrl+Shift+4
+POS	51:6	Ctrl+Shift+3
+POS	50:6	Ctrl+Shift+2
+POS	49:6	Ctrl+Shift+1
+POS	48:6	Ctrl+Shift+0
+POS	57:6	Ctrl+Shift+9
+# --- запасні клавіші (ПК: PrtScr) ---
+POS	44:0	PrtScr
+POS	44:4	Shift+PrtScr
+POS	44:2	Ctrl+PrtScr
+POS	44:1	Alt+PrtScr
+POS	44:8	Win+PrtScr
+POS	44:6	Ctrl+Shift+PrtScr
+# --- функціональні ---
+POS	112:0	F1
+POS	113:0	F2
+POS	123:0	F12
+POS	123:2	Ctrl+F12
+POS	122:3	Ctrl+Alt+F11
+POS	121:6	Ctrl+Shift+F10
+# --- літери ---
+POS	65:2	Ctrl+A
+POS	83:2	Ctrl+S
+POS	67:6	Ctrl+Shift+C
+POS	90:2	Ctrl+Z
+POS	89:2	Ctrl+Y
+POS	68:2	Ctrl+D
+# --- керівні ---
+POS	27:0	Escape
+POS	13:0	Return
+POS	32:0	Space
+POS	46:2	Ctrl+Delete
+POS	9:1	Alt+Tab
+POS	36:8	Win+Home
+# --- усі модифікатори разом: порядок мусить лишатися сталим ---
+POS	65:15	Ctrl+Shift+Alt+Win+A
+POS	65:3	Ctrl+Alt+A
+POS	65:5	Shift+Alt+A
+POS	65:12	Shift+Win+A
+POS	65:10	Ctrl+Win+A
+# --- НЕГАТИВНІ: вимкнена клавіша мусить лишитись «—» за будь-яких модифікаторів ---
+NEG	0:0	—
+NEG	0:2	—
+NEG	0:6	—
+NEG	0:15	—
+NEG	0:8	—
+NEG	0:1	—
