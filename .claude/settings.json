@@ -1,0 +1,28 @@
+{
+  "_comment": "Authored project policy (STD-CC-01), class F, committed. This file exists to DENY, not to grant: it machine-enforces the CROWN boundaries of STANDARD.md section 18.1 so a future session cannot cross them by forgetting. The agent never extends .claude/settings.local.json (STD-CC-02).",
+  "permissions": {
+    "deny": [
+      "Bash(*seal-sign.ps1*)",
+      "PowerShell(*seal-sign.ps1*)",
+      "Bash(*publish.ps1*)",
+      "PowerShell(*publish.ps1*)",
+      "Bash(*release.ps1*)",
+      "PowerShell(*release.ps1*)",
+      "Bash(*New-SelfSignedCertificate*)",
+      "PowerShell(*New-SelfSignedCertificate*)",
+      "Bash(*Import-PfxCertificate*)",
+      "PowerShell(*Import-PfxCertificate*)",
+      "Bash(*Export-PfxCertificate*)",
+      "PowerShell(*Export-PfxCertificate*)",
+      "Bash(*Remove-Item Cert:*)",
+      "PowerShell(*Remove-Item Cert:*)",
+      "Bash(git init*)",
+      "PowerShell(git init*)",
+      "Bash(*gh release*)",
+      "PowerShell(*gh release*)",
+      "Read(./_codesign.pfx)",
+      "Read(./_codesign_pwd.txt)",
+      "Read(./_ghtoken.txt)"
+    ]
+  }
+}
