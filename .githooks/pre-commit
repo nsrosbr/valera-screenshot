@@ -1,0 +1,46 @@
+#!/bin/sh
+# pre-commit - the quality gate stops being a habit and becomes a mechanism.
+#
+# WHY. This studio already paid for the difference once: an invariant called the test gate
+# mandatory "since the line was founded", yet test.ps1 was called from nowhere, so every release
+# could sail past it (STD-GATE-01). The same hole sits one level down - without this hook nothing
+# forces a check BEFORE a commit, so a red tree gets committed and is noticed later, or never.
+#
+# PROPORTIONATE ON PURPOSE. A hook that costs minutes on every typo fix is a hook people learn to
+# bypass with --no-verify, and then it guards nothing. So:
+#   docs only              -> secrets probe + conformance         (~5 s)
+#   src/, tests/, *.ps1    -> the full gate as well               (~3 min)
+# The screen layers are skipped here (-NoScreen): a commit must not seize the owner's desktop.
+# That means the live run and the visual proofs are NOT part of a commit verdict, and the hook
+# SAYS so - run .\verify.ps1 (without -NoScreen) before a release.
+# The mutation catalogue belongs to a release too: .\verify.ps1 -Full
+#
+# LIVES IN .githooks\, NOT .git\hooks\. The latter is not tracked by git and would not survive the
+# folder being copied to another machine - and portability of this folder is invariant #1 of
+# CLAUDE.md. Wired once per clone with:  git config core.hooksPath .githooks
+#
+# BYPASS: git commit --no-verify. Legitimate (a WIP commit on a branch, a doc typo mid-debug), but
+# it is a decision, so say so in the commit body. A bypass nobody can see is how a gate rots.
+
+set -e
+root="$(git rev-parse --show-toplevel)"
+staged="$(git diff --cached --name-only)"
+
+if [ -z "$staged" ]; then exit 0; fi
+
+case "$staged" in
+  *src/*|*tests/*|*tools/*|*setup/*|*.ps1) level="-NoScreen" ;;   # code or scripts -> gate too
+  *)                                       level="-Quick" ;;      # docs only -> conformance
+esac
+
+echo "pre-commit: verifying ($level) ..."
+powershell -NoProfile -ExecutionPolicy Bypass -File "$root/verify.ps1" $level
+code=$?
+
+if [ $code -ne 0 ]; then
+  echo ""
+  echo "COMMIT REFUSED: verification is red."
+  echo "Fix the cause. If you must commit anyway, use --no-verify and SAY WHY in the commit body."
+  exit 1
+fi
+exit 0
