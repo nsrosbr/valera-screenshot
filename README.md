@@ -2,6 +2,7 @@
 
 # ВАЛЄРА Скріншот — локальні знімки екрана
 
+[![gate](https://github.com/nsrosbr/valera-screenshot/actions/workflows/gate.yml/badge.svg)](https://github.com/nsrosbr/valera-screenshot/actions/workflows/gate.yml)
 [![release](https://img.shields.io/github/v/release/nsrosbr/valera-screenshot?label=release&color=0F6CBD)](https://github.com/nsrosbr/valera-screenshot/releases/latest)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![platform: Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0F6CBD)
@@ -168,3 +169,11 @@ tools\FieldProbe.cs  — симетрія встановлення/видале�
 tools\MakeIcon.cs    — генератор app.ico · app.manifest — PerMonitorV2 DPI
 build.ps1 / sign.ps1 / install.ps1 / uninstall.ps1 / INSTALL.bat / UNINSTALL.bat
 ```
+
+## Підтримати проєкт · Support
+
+Проєкт **вільний і таким залишиться**. Якщо ВАЛЄРА Скріншот став вам у пригоді й ви хочете
+підтримати розробку якісного ПЗ:
+
+[![Підтримати на Ko-fi](https://img.shields.io/badge/Ko--fi-%E2%98%95%20%D0%BF%D1%96%D0%B4%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D1%82%D0%B8-2e7d32?style=for-the-badge)](https://ko-fi.com/pavloisaiev)
+[![Банка Монобанк](https://img.shields.io/badge/Monobank-%D0%B1%D0%B0%D0%BD%D0%BA%D0%B0-2e7d32?style=for-the-badge)](https://send.monobank.ua/jar/52FQ1MSqEK)
