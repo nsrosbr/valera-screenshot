@@ -1,0 +1,66 @@
+name: Bug report / Звіт про помилку
+description: Something does not work as promised / Щось працює не так, як обіцяно
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do **not** attach a screenshot that contains private data — a description in
+        words is almost always enough.
+        Будь ласка, **не** прикріплюйте знімок із приватними даними — опису словами майже
+        завжди достатньо.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version / Версія
+      description: Tray icon → About → the "version" line. / Іконка в треї → Про програму → рядок «версія».
+      placeholder: "2.4.0"
+    validations:
+      required: true
+
+  - type: input
+    id: windows
+    attributes:
+      label: Windows build
+      description: Win+R → winver
+      placeholder: "Windows 11 26100"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scale
+    attributes:
+      label: Display scaling / Масштаб екрана
+      description: The most common source of layout defects. / Найчастіше джерело дефектів розкладки.
+      options: ["100%", "125%", "150%", "175%", "200%", "mixed / різний на моніторах"]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme / Тема
+      options: ["Light / Світла", "Dark / Темна", "As in Windows / Як у Windows", "High Contrast / Висока контрастність"]
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps / Кроки відтворення
+      description: What you did, what you expected, what happened. / Що робили, чого чекали, що сталося.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Crash log / Журнал збоїв
+      description: |
+        If a window offered to open the crash log, paste the last entry here.
+        Otherwise leave empty — the diagnostic log is OFF by default and logs EVENTS, never the
+        contents of your screenshots.
+        Якщо вікно пропонувало відкрити журнал збоїв — вставте останній запис. Інакше лишіть
+        порожнім: діагностика вимкнена за замовчуванням і логує ПОДІЇ, а не вміст знімків.
+      render: text
