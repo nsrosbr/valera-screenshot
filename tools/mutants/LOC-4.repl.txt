@@ -1,0 +1,1 @@
+        private string _template = L.S("Знімок_{date}_{time}", "Screenshot_{date}_{time}");   // MUTANT: baked at construction, before the language is known
