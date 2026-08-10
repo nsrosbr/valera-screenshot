@@ -1,0 +1,1 @@
+            c3.Controls.Add(Ui.Body(L.S("Мова інтерфейсу", "Interface language"), Pad, cy + 4, 200));
