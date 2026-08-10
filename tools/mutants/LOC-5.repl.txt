@@ -1,0 +1,2 @@
+            _tray.Text = L.S("ВАЛЄРА Скріншот — знімки екрана", "VALERA Screenshot — screen captures");   // MUTANT: a second hand-written copy
+            _tray.Visible = true;
