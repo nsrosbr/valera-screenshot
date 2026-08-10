@@ -1,0 +1,5 @@
+                if (!Native.BitBlt(mem, 0, 0, v.Width, v.Height, scr, v.X, v.Y,
+                                   Native.SRCCOPY | Native.CAPTUREBLT))
+                    throw new InvalidOperationException(
+                        L.S("Захоплення екрана не вдалося (BitBlt). Можливо, активне захищене вікно ", "Screen capture failed (BitBlt). A protected window may be in the foreground ") +
+                        L.S("або повноекранна гра з ексклюзивним DirectX.", "or a full-screen game holding exclusive DirectX."));
