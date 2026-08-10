@@ -1,0 +1,49 @@
+# --- secrets: NEVER commit (STD-SEC-02). Comment ABOVE the pattern, never trailing.
+_ghtoken.txt
+_codesign_pwd.txt
+_codesign.pfx
+
+# --- build artifacts (STD-TREE-03): produced, not sourced. Releases go to GitHub Releases.
+release/
+ValeraScreenshot.exe
+tests/Test.exe
+tools/*.exe
+setup/Uninstall.exe
+*.pdb
+
+# --- agent workspace: machine-local, never published
+# .claude\settings.json IS committed on purpose: it is the authored project policy that machine-
+# enforces the CROWN boundaries, and it must travel with the folder. Everything below it is
+# per-machine state - a permission granted on THIS computer, a scheduler lock, a worktree.
+# One of them already pointed at a tool that no longer exists, by a path that is about to change.
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.claude/worktrees/
+
+# --- QA / runtime scratch
+# _preview_*.png - робочі кадри пруф-гейта. Кураторський набір, що йде в репозиторій, лежить
+# у docs\img\ і НЕ ігнорується: без нього README не має жодної ілюстрації.
+_preview_*.png
+_proof_*.png
+_proof_report.txt
+# _gate_layers.txt - which gate layers actually ran in the last run. A RECORD of a local run,
+# not a source: committing it would let one machine's "the live layer ran" authorise another
+# machine's release. package.ps1 reads it and refuses to package off a run that skipped Drive.
+_gate_layers.txt
+# копії файлів зі СТАРИМ пін-відбитком, зроблені перед мінтом власного серта (2026-07-21).
+# Секретів там немає (прочіс підтвердив), але в репозиторії вони б лише плутали: два різні
+# піни в одному дереві - це запрошення підписати не тим.
+_newcert_backup_*/
+_real_*.png
+_toolbar_zoom.png
+Screenshots/
+settings.ini
+_hotkeys.txt
+_last_capture.txt
+debug.log
+debug.log.1
+crash.log
+
+# --- dist staging (signed installers are attached to Releases, not tracked)
+dist/*.exe
+dist/*.zip
