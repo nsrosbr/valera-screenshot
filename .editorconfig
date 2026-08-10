@@ -1,0 +1,26 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# STD-ENC-01: PowerShell 5.1 reads .ps1 as ANSI, so a single non-ASCII byte breaks the parser.
+# This project has broken twice on exactly that (Cyrillic in a mutate.ps1 anchor, Ukrainian
+# comments in build.ps1). The gate checks it; this line is the editor-side reminder.
+[*.ps1]
+charset = latin1
+end_of_line = crlf
+
+[*.{yml,yaml,json}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{bat,cmd}]
+end_of_line = crlf
+charset = latin1
