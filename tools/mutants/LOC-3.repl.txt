@@ -1,0 +1,1 @@
+            c3.Controls.Add(Ui.Body("Мова інтерфейсу", Pad, cy + 4, 200));   // MUTANT: bare Cyrillic
