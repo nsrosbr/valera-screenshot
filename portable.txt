@@ -1,0 +1,3 @@
+Portable marker. While this file sits next to ValeraScreenshot.exe the app NEVER touches the
+registry: no self-install, no autostart entry, no Apps-and-Features card, no shortcuts.
+Kept in the DEV folder on purpose so a build run here can never install itself (STD-LIFE-03).
