@@ -1,0 +1,64 @@
+{
+  "_comment": "THE ONLY hand-written per-project file of the studio standard. JSON, not .psd1: read with [System.IO.File]::ReadAllText($p,[Text.Encoding]::UTF8) | ConvertFrom-Json (STD-ENC-09). Binds ValeraScreenshot (studio app #3) to STANDARD.md. Free placeholders here; derived fields (Exe, AppData, EnvPrefix, Cer, UninstallKey, Mutex, Namespace) are a formula of AppId - never written by hand.",
+
+  "StandardVersion": 2,
+  "MinStandardVersion": 1,
+
+  "Identity": {
+    "AppId":        "ValeraScreenshot",
+    "BrandUk":      null,
+    "BrandEn":      null,
+    "DisplayName":  "ValeraScreenshot — знімки екрана",
+    "Publisher":    "Павло Ісаєв",
+    "Repo":         "nsrosbr/valera-screenshot",
+    "Thumbprint":   "A30B626AF77DD5FC2FD04C11DE1D5ADAA56E8FBE",
+    "CertSubject":  "CN=Pavlo Isaiev, O=Pavlo Isaiev",
+    "CertOrg":      "Pavlo Isaiev",
+    "ResourceId":   "valerascreenshot_exe",
+    "MutexHex":     "A17D",
+    "ReleaseTitle": "VALERASCREENSHOT",
+    "UiLangs":      ["uk"],
+    "TokenExpiry":  null,
+    "Resources":    ["authorphoto", "authorphoto_dark"]
+  },
+
+  "MaxDeviations": 8,
+  "Deviations": [
+    {
+      "Id": "LS-DEV-01",
+      "Rule": "STD-UI-02",
+      "Form": "ABSENCE-EXCEPTION",
+      "Check": "E2",
+      "Reason": "ValeraScreenshot is a screenshot ANNOTATOR. The colours in Annotate.cs / OverlayForm.cs / ShareForm.cs are annotation DATA (the user-chosen pen/marker palette, per-annotation Color, the Word-2024 duotone glyph ink/accent), not theme. They are intrinsic to the drawing tools. Theme/UI colours DO live in Ui.cs (Theme class). Centralizing tool colours into Ui.cs would be wrong.",
+      "Cost": "The E2 grep flags Color.FromArgb in the drawing layer. Bounded to Annotate/OverlayForm/ShareForm; theme stays single-sourced in Ui.cs.",
+      "Approved": "2026-07-17"
+    },
+    {
+      "Id": "LS-DEV-02",
+      "Rule": "STD-UI-03",
+      "Form": "ABSENCE-EXCEPTION",
+      "Check": "E3",
+      "Reason": "OverlayForm MUST be AutoScaleMode.None and map 1:1 to the virtual screen in PHYSICAL pixels (PerMonitorV2). DPI auto-scaling would rescale the frozen capture overlay and break pixel-exact selection, the magnifier and annotation placement - the app's whole reason to exist (native-resolution capture). Every other Form (Settings/About/Share) sets AutoScaleMode.Dpi.",
+      "Cost": "One Form (OverlayForm) is exempt by design. Named and bounded.",
+      "Approved": "2026-07-17"
+    },
+    {
+      "Id": "LS-DEV-03",
+      "Rule": "STD-IDENT-03",
+      "Form": "RECONCILIATION",
+      "Check": "C3",
+      "Reason": "The single-instance mutex literal lives in src\\Ident.cs (STD-IDENT-01: the single identity source); App.cs references Ident.Mutex. C3 pre-dates the Ident.cs pattern (which does not yet exist in the etalon) and greps App.cs for the literal string. The literal IS present, in Ident.cs, and matches the bind (ValeraScreenshot_SingleInstance_{A17D}).",
+      "Cost": "C3 needs the numeric-id reconciliation on the studio side to look in Ident.cs. Until then it reads as a fork; it is not.",
+      "Approved": "2026-07-17"
+    },
+    {
+      "Id": "LS-DEV-05",
+      "Rule": "STD-IDENT-04",
+      "Form": "RESOLVED",
+      "Check": null,
+      "Reason": "RESOLVED 2026-07-21 (kept as a record; Check=null so nothing is skipped). The product is the author's personal brand. The last carrier of the old organisation was the SHARED studio certificate; the owner ran tools\\studio_percert.ps1 -Apply (publisher identity became per-app in the studio normalizer, agreed core 5 -> 5) and tools\\newcert.ps1 -Apply (personal certificate CN=Pavlo Isaiev minted, pin moved, .cer exported). ValeraScreenshot now signs with its own certificate; the studio's published app keeps the old one. The former LS-DEV-06 (declared G2 drift of sign.ps1 + deploy\\trust_cert.cmd while the normalizer wiring was pending) is closed by the same act - G2 must be green with NO deviation from here on.",
+      "Cost": "None remaining.",
+      "Approved": "2026-07-21"
+    }
+  ]
+}
