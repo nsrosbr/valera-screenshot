@@ -1,0 +1,3 @@
+Portable marker. While this file sits next to ValeraScreenshot.exe the app NEVER touches the
+registry: no self-install, no autostart entry, no Apps-and-Features card, no shortcuts.
+Settings and screenshots stay in this folder. Delete this file if you want a normal install.
