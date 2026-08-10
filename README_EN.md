@@ -2,6 +2,7 @@
 
 # VALERA Screenshot — local screen captures
 
+[![gate](https://github.com/nsrosbr/valera-screenshot/actions/workflows/gate.yml/badge.svg)](https://github.com/nsrosbr/valera-screenshot/actions/workflows/gate.yml)
 [![release](https://img.shields.io/github/v/release/nsrosbr/valera-screenshot?label=release&color=0F6CBD)](https://github.com/nsrosbr/valera-screenshot/releases/latest)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![platform: Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0F6CBD)
@@ -134,3 +135,10 @@ silently is not a criterion.
 ## Licence
 
 MIT — see [LICENSE](LICENSE).
+
+## Support the project
+
+The project is **free and will stay free**. If VALERA Screenshot serves you well:
+
+[![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-%E2%98%95%20support-2e7d32?style=for-the-badge)](https://ko-fi.com/pavloisaiev)
+[![Monobank jar](https://img.shields.io/badge/Monobank-jar-2e7d32?style=for-the-badge)](https://send.monobank.ua/jar/52FQ1MSqEK)
