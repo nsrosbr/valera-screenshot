@@ -1,0 +1,29 @@
+name: Feature request / Пропозиція
+description: Something the app should be able to do / Щось, що застосунок мав би вміти
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Two things this project will **not** do, so nobody spends time proposing them:
+        uploading screenshots anywhere, and any form of telemetry. Zero network outside the
+        update check is a promise, not an oversight.
+
+        Дві речі, яких цей проєкт **не** робитиме, щоб ніхто не витрачав на них час:
+        завантаження знімків кудись і будь-яка телеметрія. Нуль мережі поза перевіркою
+        оновлень — це обіцянка, а не недогляд.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem / Задача
+      description: What are you trying to do that is hard today? / Що ви намагаєтесь зробити і чому це зараз складно?
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed behaviour / Пропонована поведінка
+    validations:
+      required: false
