@@ -1,0 +1,1 @@
+                Native.BitBlt(mem, 0, 0, v.Width, v.Height, scr, v.X, v.Y, Native.SRCCOPY | Native.CAPTUREBLT);   // MUTANT: a black frame passes as success
